@@ -13,7 +13,7 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Main {
+public class Homework1 {
     public static int getRandom(int maxValue){
         return new Random().nextInt(maxValue);
     }
