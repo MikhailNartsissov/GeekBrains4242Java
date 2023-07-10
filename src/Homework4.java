@@ -6,6 +6,7 @@
 //        *реализовать сортировку по возрасту и полу с использованием индексов
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -38,7 +39,7 @@ public class Homework4 {
             firstname.add(scanner.nextLine().strip().toUpperCase());
             System.out.println("Отчество: ");
             middlename.add(scanner.nextLine().strip().toUpperCase());
-            System.out.println("Фамилияя: ");
+            System.out.println("Фамилия: ");
             lastname.add(scanner.nextLine().strip().toUpperCase());
             System.out.println("Возраст (количество полных лет): ");
             age.add(Integer.valueOf(scanner.nextLine()));
@@ -59,7 +60,7 @@ public class Homework4 {
             showPerson(firstname.get(id), middlename.get(id), lastname.get(id),age.get(id), sex.get(id));
         }
         System.out.println("\n******************************\n");
-        index.sort((o1, o2) -> age.get(o1) - age.get(o2));
+        index.sort(Comparator.comparingInt(age::get));
         System.out.println("\nРезультат сортировки по возрасту:\n******************************");
         for (Integer id : index
              ) {
