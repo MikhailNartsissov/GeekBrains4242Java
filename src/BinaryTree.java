@@ -123,7 +123,7 @@ public class BinaryTree<T extends Comparable<T>> {
         int nodeCount = nodeCount(root, 0);
         int width = 50;
         int height = nodeCount * 5;
-        List<List<PrintN>> list = new ArrayList<List<PrintN>>();
+        List<List<PrintN>> list = new ArrayList<>();
         for (int i = 0; i < height; i++)  {
             ArrayList<PrintN> row = new ArrayList<>();
             for (int j = 0; j < width; j++) {
@@ -190,20 +190,16 @@ public class BinaryTree<T extends Comparable<T>> {
                 list.get(i).get(j).str = "|";
             }
             list.get(i).get(j).str = "\\";
-            while (j < j2) {
-                j++;
-                list.get(i).get(j).str = "-";
-            }
         } else {
             while (i > i2) {
                 i--;
                 list.get(i).get(j).str = "|";
             }
             list.get(i).get(j).str = "/";
-            while (j < j2) {
-                j++;
-                list.get(i).get(j).str = "-";
-            }
+        }
+        while (j < j2) {
+            j++;
+            list.get(i).get(j).str = "-";
         }
     }
 
@@ -219,7 +215,7 @@ public class BinaryTree<T extends Comparable<T>> {
             leftChild = getMaxDepth(depth, node.leftChild);
         if (node.rightChild != null)
             rightChild = getMaxDepth(depth, node.rightChild);
-        return leftChild > rightChild ? leftChild : rightChild;
+        return Math.max(leftChild, rightChild);
     }
 
     private int nodeCount(Node node, int count) {
@@ -232,4 +228,4 @@ public class BinaryTree<T extends Comparable<T>> {
 
 }
 
-enum Color {Red, Black};
+enum Color {Red, Black}
